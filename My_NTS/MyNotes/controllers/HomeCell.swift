@@ -35,7 +35,7 @@ class HomeCell: UITableViewCell {
         self.dateLabel.text = dateText
         
         self.todayIndicator.backgroundColor = UIColor.clear
-        if type.lowercased() == "company" || type.lowercased() == "recruiter" {
+        if type.lowercased() != "entertainment" {
             if dateText.count > 0 && dateText.contains(today) {
                 self.todayIndicator.backgroundColor = UIColor.blue
             }
