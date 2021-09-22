@@ -105,10 +105,6 @@ class HomeViewController: UIViewController {
             self.showTypesAdminPage()
         }) )
         
-//        alert.addAction( UIAlertAction(title: "Search Notes", style: .default, handler: { (action: UIAlertAction) in
-//            self.showSortingPage()
-//        }) )
-        
         alert.addAction( UIAlertAction(title: "Cancel", style: .destructive, handler: nil) )
 
         self.present(alert, animated: true, completion: nil)
