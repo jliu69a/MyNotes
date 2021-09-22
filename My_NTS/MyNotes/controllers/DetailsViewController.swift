@@ -8,7 +8,7 @@
 import UIKit
 
 
-protocol DetailsViewControllerDelegate: class {
+protocol DetailsViewControllerDelegate: AnyObject {
     func didSaveNotesData()
 }
 

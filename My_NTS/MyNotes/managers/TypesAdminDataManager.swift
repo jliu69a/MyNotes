@@ -12,6 +12,7 @@ class TypesAdminDataManager: NSObject {
     static let sharedInstance = TypesAdminDataManager()
     
     var noteTypesList: [NoteTypes] = []
+    var countsData: [String: String] = [:]
     
     func myNoteTypesData(completion: @escaping  (Any)->()) {
         
@@ -42,6 +43,36 @@ class TypesAdminDataManager: NSObject {
                 completion(value)
             }
         }
+    }
+    
+    func myNoteTotalTypes(completion: @escaping  (Any)->()) {
+        
+        DatasManager.sharedInstance.myNoteTotalTypes() { (any: Any) in
+            DispatchQueue.main.async {
+                let totalsList = any as? [NoteTotals] ?? []
+                self.updateTotalCounts(list: totalsList)
+                let value: Any = true as Any
+                completion(value)
+            }
+        }
+    }
+    
+    func updateTotalCounts(list: [NoteTotals]) {
+        
+        if list.count == 0 {
+            return
+        }
+        
+        self.countsData.removeAll()
+        for each in list {
+            let idValue = each.id ?? "0"
+            let countValue = each.total ?? "0"
+            self.countsData[idValue] = countValue
+        }
+    }
+    
+    func totalForType(typeId: String) -> String {
+        return self.countsData[typeId] ?? "0"
     }
     
 }

@@ -25,6 +25,7 @@ class TypesAdminViewController: UIViewController {
         
         self.title = "Types"
         viewModel.delegate = self
+        viewModel.totalCounts()
         viewModel.allTypes()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CellId")
@@ -67,6 +68,10 @@ extension TypesAdminViewController: TypesAdminViewModelDelegate {
     func didHaveAllTypesData() {
         self.tableView.reloadData()
     }
+    
+    func didHaveTotalCounts() {
+        //
+    }
 }
 
 //MARK: -
@@ -85,7 +90,8 @@ extension TypesAdminViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellId")
         
         let item = viewModel.itemWithIndexPath(index: indexPath)
-        cell?.textLabel?.text = item.name
+        let total = viewModel.totalForType(typeId: item.id ?? "0")
+        cell?.textLabel?.text = "\(item.name ?? ""), total = \(total)"
         
         return cell!
     }

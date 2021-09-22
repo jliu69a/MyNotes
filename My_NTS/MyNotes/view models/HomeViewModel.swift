@@ -9,7 +9,7 @@ import UIKit
 import SwiftyJSON
 
 
-protocol HomeViewModelDelegate: class {
+protocol HomeViewModelDelegate: AnyObject {
     func didHaveAllNotesData()
 }
 

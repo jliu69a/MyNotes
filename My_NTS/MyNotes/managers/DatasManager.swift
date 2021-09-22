@@ -84,6 +84,41 @@ class DatasManager: NSObject {
     
     //MARK: -
     
+    func myNoteTotalTypes(completion: @escaping  (Any)->()) {
+        
+        let url: String = "http://www.mysohoplace.com/php_hdb/php_MyNotes/my_notes_types_total.php"
+        let connect: ConnectionsManager = ConnectionsManager()
+        
+        connect.getDataFromUrl(url: url) { (data: Any) in
+            if let rawData = data as? Data {
+                let totalTypesList: [NoteTotals] = self.parseTotalsData(data: rawData)
+                let value: Any = totalTypesList as Any
+                completion(value)
+            }
+        }
+    }
+    
+    func parseTotalsData(data: Data) -> [NoteTotals] {
+        
+        let json = try? JSON(data: data)
+        if json == nil {
+            print("-> total types : No Data")
+            return []
+        }
+        
+        var dataList: [NoteTotals] = []
+        do {
+            dataList = try JSONDecoder().decode([NoteTotals].self, from: data)
+        }
+        catch {
+            print(error)
+        }
+        
+        return dataList
+    }
+    
+    //MARK: -
+    
     func myNoteTypesData(completion: @escaping  (Any)->()) {
         
         let url: String = "http://www.mysohoplace.com/php_hdb/php_MyNotes/my_notes_all_types.php"

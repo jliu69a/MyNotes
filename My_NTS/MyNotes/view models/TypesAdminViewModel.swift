@@ -9,7 +9,8 @@ import UIKit
 import SwiftyJSON
 
 
-protocol TypesAdminViewModelDelegate: class {
+protocol TypesAdminViewModelDelegate: AnyObject {
+    func didHaveTotalCounts()
     func didHaveAllTypesData()
 }
 
@@ -37,5 +38,15 @@ extension TypesAdminViewModel {
         TypesAdminDataManager.sharedInstance.myNoteTypesData() { (any: Any) in
             self.delegate?.didHaveAllTypesData()
         }
+    }
+    
+    func totalCounts() {
+        TypesAdminDataManager.sharedInstance.myNoteTotalTypes() { (any: Any) in
+            self.delegate?.didHaveTotalCounts()
+        }
+    }
+    
+    func totalForType(typeId: String) -> String {
+        return TypesAdminDataManager.sharedInstance.totalForType(typeId: typeId)
     }
 }

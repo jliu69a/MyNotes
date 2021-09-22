@@ -31,3 +31,9 @@ public struct Notes: Codable {
     var date_time: String?
     var content : String?
 }
+
+public struct NoteTotals: Codable {
+    var id : String?
+    var name : String?
+    var total : String?
+}

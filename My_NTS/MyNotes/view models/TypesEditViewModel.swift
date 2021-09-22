@@ -8,7 +8,7 @@
 import UIKit
 
 
-protocol TypesEditViewModelDelegate: class {
+protocol TypesEditViewModelDelegate: AnyObject {
     func didSaveChanges()
 }
 
