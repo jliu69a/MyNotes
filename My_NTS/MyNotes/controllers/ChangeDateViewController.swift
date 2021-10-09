@@ -18,6 +18,7 @@ class ChangeDateViewController: UIViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var selectButton: UIButton!
+    @IBOutlet weak var currentDateButton: UIButton!
     
     weak var delegate: ChangeDateViewControllerDelegate?
     
@@ -32,13 +33,25 @@ class ChangeDateViewController: UIViewController {
         
         self.datePicker.date = self.selectedDate
         
-        let frame = self.selectButton.frame
-        self.selectButton.layer.cornerRadius = frame.size.height / 4.0
+        let frame1 = self.selectButton.frame
+        self.selectButton.layer.cornerRadius = frame1.size.height / 4.0
         self.selectButton.clipsToBounds = true
+        
+        let frame2 = self.currentDateButton.frame
+        self.currentDateButton.layer.cornerRadius = frame2.size.height / 4.0
+        self.currentDateButton.clipsToBounds = true
     }
     
     @IBAction func selectDateAction(_ sender: Any) {
-        self.delegate?.didSelectDate(selectedDate: self.datePicker.date)
+        chooseDate(date: self.datePicker.date)
+    }
+    
+    @IBAction func currentDateAction(_ sender: Any) {
+        chooseDate(date: Date())
+    }
+    
+    private func chooseDate(date: Date) {
+        self.delegate?.didSelectDate(selectedDate: date)
         self.dismiss(animated: true, completion: nil)
     }
     

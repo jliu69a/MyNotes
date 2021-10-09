@@ -558,10 +558,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7J-Cb-5Oh" userLabel="button view">
-                                        <rect key="frame" x="0.0" y="758" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="698" width="414" height="120"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTo-eb-2wq" userLabel="select button">
-                                                <rect key="frame" x="82" y="10" width="250" height="40"/>
+                                                <rect key="frame" x="82" y="5" width="250" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="8tD-Sv-Kir"/>
@@ -574,16 +574,32 @@
                                                     <action selector="selectDateAction:" destination="hSd-o5-rnT" eventType="touchUpInside" id="kcQ-rQ-1QF"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujl-2S-jz1" userLabel="current button">
+                                                <rect key="frame" x="82" y="75" width="250" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="Cfv-Hk-IVL"/>
+                                                    <constraint firstAttribute="height" constant="40" id="UBG-wd-fvn"/>
+                                                </constraints>
+                                                <state key="normal" title="Current Date">
+                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="currentDateAction:" destination="hSd-o5-rnT" eventType="touchUpInside" id="8Gn-jL-Tm5"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="kTo-eb-2wq" firstAttribute="centerX" secondItem="F7J-Cb-5Oh" secondAttribute="centerX" id="1Uk-H2-y1o"/>
-                                            <constraint firstItem="kTo-eb-2wq" firstAttribute="centerY" secondItem="F7J-Cb-5Oh" secondAttribute="centerY" id="8kg-QY-p92"/>
-                                            <constraint firstAttribute="height" constant="60" id="kVp-hP-kUu"/>
+                                            <constraint firstItem="ujl-2S-jz1" firstAttribute="top" secondItem="kTo-eb-2wq" secondAttribute="bottom" constant="30" id="48M-Oc-Krv"/>
+                                            <constraint firstItem="kTo-eb-2wq" firstAttribute="top" secondItem="F7J-Cb-5Oh" secondAttribute="top" constant="5" id="LNn-0K-BvE"/>
+                                            <constraint firstItem="ujl-2S-jz1" firstAttribute="centerX" secondItem="F7J-Cb-5Oh" secondAttribute="centerX" id="V31-K6-9Cb"/>
+                                            <constraint firstAttribute="height" constant="120" id="kVp-hP-kUu"/>
                                         </constraints>
                                     </view>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="nmT-Wd-Bwz">
-                                        <rect key="frame" x="0.0" y="80" width="414" height="658"/>
+                                        <rect key="frame" x="0.0" y="80" width="414" height="598"/>
                                     </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -612,6 +628,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentDateButton" destination="ujl-2S-jz1" id="7hI-Nk-pnH"/>
                         <outlet property="datePicker" destination="nmT-Wd-Bwz" id="JWT-A0-9uZ"/>
                         <outlet property="selectButton" destination="kTo-eb-2wq" id="3lU-fu-Bcl"/>
                     </connections>
