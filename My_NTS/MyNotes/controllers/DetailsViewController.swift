@@ -66,9 +66,10 @@ class DetailsViewController: UIViewController {
         //-- for desc text view
         let screenWidth = UIScreen.main.bounds.width
         let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: screenWidth, height: 44.0))
+        let eraseBarButton = UIBarButtonItem(title: "Erase", style: .plain, target: target, action: #selector(erase))
         let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let barButton = UIBarButtonItem(title: "Close", style: .plain, target: target, action: #selector(close))
-        toolBar.setItems([flexible, barButton], animated: false)
+        toolBar.setItems([eraseBarButton, flexible, barButton], animated: false)
         self.contentTextView.inputAccessoryView = toolBar
     }
     
@@ -107,6 +108,10 @@ class DetailsViewController: UIViewController {
     
     @objc func close() {
         self.contentTextView.resignFirstResponder()
+    }
+    
+    @objc func erase() {
+        self.contentTextView.text = ""
     }
     
     @IBAction func changeTypeAction(_ sender: Any) {
