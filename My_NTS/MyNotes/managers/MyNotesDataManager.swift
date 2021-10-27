@@ -104,6 +104,22 @@ class MyNotesDataManager: NSObject {
         for _ in self.notesDisplayList {
             self.expandFlagsList.append(true)  //-- initially all are expanded
         }
+        
+        self.changeForEntertainmentData()
+    }
+    
+    func changeForEntertainmentData() {
+        
+        let entKey = "Entertainment"
+        if !self.notesDisplayList.contains(entKey) {
+            return
+        }
+        
+        let entData = self.notesDisplayData[entKey] ?? []
+        if entData.count > 0 {
+            let sortEntData = entData.sorted(by: { ($0.title ?? "") < ($1.title ?? "") })
+            self.notesDisplayData[entKey] = sortEntData
+        }
     }
     
     func typeNameWithId(id: String) -> String {
