@@ -42,9 +42,9 @@ class ConnectionsManager: NSObject {
     }
     
     
-    func saveDataFromUrl(url: String, parameters: [String: Any], completion: @escaping (_ data: Any) -> Void) {
+    func saveDataFromUrl(url: String, parameters: String, completion: @escaping (_ data: Any) -> Void) {
         
-        AF.request(url, method: HTTPMethod.post, parameters: parameters, encoding: URLEncoding.httpBody, headers: nil).validate().responseData { response in
+        AF.request(url).responseData { response in
             switch response.result {
             case let .success(value):
                 completion(value)

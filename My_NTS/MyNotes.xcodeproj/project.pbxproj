@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		F74C82CD122AE5784A3EC77D /* Pods_MyNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E421F4BC33F30CBF630A51A4 /* Pods_MyNotes.framework */; };
+		FE0B934A2B99777000038D00 /* SharedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B93492B99777000038D00 /* SharedHelper.swift */; };
 		FE1B4F48264A05FF00A5579C /* ConnectionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1B4F47264A05FF00A5579C /* ConnectionsManager.swift */; };
 		FE1B4F57264A071400A5579C /* DatasManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1B4F56264A071400A5579C /* DatasManager.swift */; };
 		FE1B4F5B264A081E00A5579C /* jsonsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1B4F5A264A081E00A5579C /* jsonsData.swift */; };
@@ -56,6 +57,7 @@
 		016A01D7FC697EFF6C93F19D /* Pods-MyNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.release.xcconfig"; path = "Target Support Files/Pods-MyNotes/Pods-MyNotes.release.xcconfig"; sourceTree = "<group>"; };
 		09727B3C763545140585D86F /* Pods-MyNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.debug.xcconfig"; path = "Target Support Files/Pods-MyNotes/Pods-MyNotes.debug.xcconfig"; sourceTree = "<group>"; };
 		E421F4BC33F30CBF630A51A4 /* Pods_MyNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE0B93492B99777000038D00 /* SharedHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelper.swift; sourceTree = "<group>"; };
 		FE1B4F47264A05FF00A5579C /* ConnectionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsManager.swift; sourceTree = "<group>"; };
 		FE1B4F56264A071400A5579C /* DatasManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasManager.swift; sourceTree = "<group>"; };
 		FE1B4F5A264A081E00A5579C /* jsonsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonsData.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				FE1B4F56264A071400A5579C /* DatasManager.swift */,
 				FE1B4F61264A0A9700A5579C /* MyNotesDataManager.swift */,
 				FE6C86B526643C330073D6E2 /* TypesAdminDataManager.swift */,
+				FE0B93492B99777000038D00 /* SharedHelper.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				FE97462E2649C15B009B2128 /* DetailsViewController.swift in Sources */,
 				FE1B4F57264A071400A5579C /* DatasManager.swift in Sources */,
 				FE1B4F48264A05FF00A5579C /* ConnectionsManager.swift in Sources */,
+				FE0B934A2B99777000038D00 /* SharedHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

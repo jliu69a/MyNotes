@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.4.3)
+  - Alamofire (5.6.2)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
@@ -12,9 +12,9 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
 PODFILE CHECKSUM: 270fc98158ecda0af4101b098632a419a7302f0f
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.12.1

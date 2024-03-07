@@ -50,7 +50,9 @@ class MyNotesDataManager: NSObject {
         let content = item.content ?? ""
         let dateTime = item.date_time ?? ""
         
-        let parameters: [String: Any] = ["id": (noteId as Any), "title": (title as Any), "typeid": (typeId as Any), "datetime": (dateTime as Any), "content": (content as Any)]
+        let escapedTitle = SharedHelper().escapeForHTMLCharacters(line: title)
+        let escapedContent = SharedHelper().escapeForHTMLCharacters(line: content)
+        let parameters = "id=\(noteId)&title=\(escapedTitle)&typeid=\(typeId)&datetime=\(dateTime)&content=\(escapedContent)"
         
         DatasManager.sharedInstance.changeNotesData(code: code, parameters: parameters) { (any: Any) in
             DispatchQueue.main.async {

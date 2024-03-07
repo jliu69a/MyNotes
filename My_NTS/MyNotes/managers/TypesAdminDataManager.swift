@@ -32,7 +32,8 @@ class TypesAdminDataManager: NSObject {
         let typeId = item.id ?? "0"
         let name = item.name ?? ""
         
-        let parameters: [String: Any] = ["id": (typeId as Any), "type": (name as Any)]
+        let escapedName = SharedHelper().escapeForHTMLCharacters(line: name)
+        let parameters = "id=\(typeId)&type=\(escapedName)"
         
         DatasManager.sharedInstance.changeNoteTypesData(code: code, parameters: parameters) { (any: Any) in
             DispatchQueue.main.async {

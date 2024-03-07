@@ -36,7 +36,7 @@ class DatasManager: NSObject {
         }
     }
     
-    func changeNotesData(code: Int, parameters: [String: Any], completion: @escaping  (Any)->()) {
+    func changeNotesData(code: Int, parameters: String, completion: @escaping  (Any)->()) {
         
         var url: String = ""
         switch code {
@@ -53,8 +53,16 @@ class DatasManager: NSObject {
             break
         }
         
+        if url.count == 0 {
+            let emptyResult: Any = "" as Any
+            completion(emptyResult)
+            return
+        }
+        
+        let urlLine = String(format: "%@?%@", url, parameters)
+        
         let connect: ConnectionsManager = ConnectionsManager()
-        connect.saveDataFromUrl(url: url, parameters: parameters) { (data: Any) in
+        connect.saveDataFromUrl(url: urlLine, parameters: parameters) { (data: Any) in
             if let rawData = data as? Data {
                 let myNotesList: [MyNotesData] = self.parseMyNotesData(data: rawData)
                 let value: Any = myNotesList as Any
@@ -133,7 +141,7 @@ class DatasManager: NSObject {
         }
     }
     
-    func changeNoteTypesData(code: Int, parameters: [String: Any], completion: @escaping  (Any)->()) {
+    func changeNoteTypesData(code: Int, parameters: String, completion: @escaping  (Any)->()) {
         
         var url: String = ""
         switch code {
@@ -150,8 +158,16 @@ class DatasManager: NSObject {
             break
         }
         
+        if url.count == 0 {
+            let emptyResult = "" as Any
+            completion(emptyResult)
+            return
+        }
+        
+        let urlLine = String(format: "%@?%@", url, parameters)
+        
         let connect: ConnectionsManager = ConnectionsManager()
-        connect.saveDataFromUrl(url: url, parameters: parameters) { (data: Any) in
+        connect.saveDataFromUrl(url: url, parameters: urlLine) { (data: Any) in
             if let rawData = data as? Data {
                 let myNotesList: [NoteTypes] = self.parseMyNoteTypesData(data: rawData)
                 let value: Any = myNotesList as Any
